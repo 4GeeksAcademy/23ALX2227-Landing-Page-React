@@ -1,25 +1,33 @@
 import React from "react";
+import NavBar from "./NavBar.jsx"
+import Footer from "./Footer.jsx";
+import Jumbotron from "./Jumbotron.jsx";
+import Card from "./Card.jsx";
 
-//include images into your bundle
-import rigoImage from "../../img/rigo-baby.jpg";
+const arrData = [
+    { id: 1, title: "Titulo 1", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 2, title: "Titulo 2", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 3, title: "Titulo 3", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 4, title: "Titulo 4", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 5, title: "Titulo 5", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 6, title: "Titulo 6", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
+    { id: 7, title: "Titulo 7", desc: "Some quick example text to build on the card title and make up the bulk of the card's content." },
 
-//create your first component
+]
+
 const Home = () => {
 	return (
-		<div className="text-center">
-			<h1 className="text-center mt-5">Hello Rigo!</h1>
-			<p>
-				<img src={rigoImage} />
-			</p>
-			<a href="#" className="btn btn-success">
-				If you see this green button... bootstrap is working...
-			</a>
-			<p>
-				Made by{" "}
-				<a href="http://www.4geeksacademy.com">4Geeks Academy</a>, with
-				love!
-			</p>
-		</div>
+		<>
+			<NavBar />
+			<div className="container">
+				<Jumbotron/>
+				<div className="d-flex justify-content-start row m-0 p-0">
+				{arrData.map((dato) => <Card data={dato} key={dato.id}/> )}
+				</div>
+				
+			</div>
+			<Footer/>
+		</>
 	);
 };
 
